@@ -14,7 +14,7 @@ class HomeController extends Controller
             'titulo'=>"JBL Store - Sua loja Virtual",
             'tipo'=>"home",
             'menu'=>"Home",
-            'submenu'=>""
+            'submenu'=>"",
         ];
         return view("client.home", $data);
     }

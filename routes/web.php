@@ -20,4 +20,6 @@ Route::redirect('/', '/pt');
 
 Route::group(['prefix' => '{language}'], function () {
     Route::get('/', "HomeController@index")->name('home');
+    Route::get('/produtos', "ProdutoController@index")->name('produtos');
+    Route::get('/carrinho', "CartController@index")->name('carrinho');
 });
