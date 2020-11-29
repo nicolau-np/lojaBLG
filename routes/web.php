@@ -19,5 +19,5 @@ Route::get('/login/facebook/callback', 'SocialController@callback');
 Route::redirect('/', '/pt');
 
 Route::group(['prefix' => '{language}'], function () {
-    Route::get('/', "HomeController@index");
+    Route::get('/', "HomeController@index")->name('home');
 });

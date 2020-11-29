@@ -311,6 +311,7 @@ h2 {
     padding: 15px 0;
     background: #ffffff;
     margin-bottom: 30px;
+   
 }
 
 .bottom-bar .logo {
@@ -418,11 +419,13 @@ h2 {
     max-height: 400px;
     overflow: hidden;
     background: #ffffff !important;
+  
 }
 
 .header .navbar-nav {
     width: 100%;
     padding: 15px 0;
+    font-size: 12px;
 }
 
 .header .navbar li {

@@ -1,9 +1,9 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{app()->getLocale()}}">
     <head>
         <meta charset="utf-8">
-        <title>E Store - eCommerce HTML Template</title>
+        <title>{{$titulo}}</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="eCommerce HTML Template Free Download" name="keywords">
         <meta content="eCommerce HTML Template Free Download" name="description">
@@ -32,14 +32,14 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <i class="fa fa-envelope"></i>
-                        support@email.com
+                        support@gmail.com
                     </div>
                     <div class="col-sm-6">
                         <i class="fa fa-phone-alt"></i>
-                        +012-345-6789
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="http://">PT</a>&nbsp;&nbsp;
-                        <a href="http://">EN</a>
+                        +244 946 216 795
+                        &nbsp;&nbsp;&nbsp;
+                    <a href="{{route(Route::currentRouteName(), 'pt')}}">PT</a>&nbsp;&nbsp;
+                    <a href="{{route(Route::currentRouteName(), 'en')}}">EN</a>
                     </div>
                 </div>
             </div>
@@ -57,27 +57,25 @@
 
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="product-list.html" class="nav-item nav-link">Products</a>
-                            <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
-                            <a href="cart.html" class="nav-item nav-link">Cart</a>
-                            <a href="checkout.html" class="nav-item nav-link">Checkout</a>
-                            <a href="my-account.html" class="nav-item nav-link">My Account</a>
+                            <a href="{{route('home', app()->getLocale())}}" class="nav-item nav-link active">@lang('Principal')</a>
+                            <a href="product-list.html" class="nav-item nav-link">@lang('Produtos')</a>
+                            <a href="cart.html" class="nav-item nav-link">@lang('Carrinho')</a>
+                            <a href="my-account.html" class="nav-item nav-link">@lang('Minha Conta')</a>
+                            <a href="my-account.html" class="nav-item nav-link">@lang('Contactar')</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">@lang('Sobre')</a>
                                 <div class="dropdown-menu">
-                                    <a href="wishlist.html" class="dropdown-item">Wishlist</a>
-                                    <a href="login.html" class="dropdown-item">Login & Register</a>
-                                    <a href="contact.html" class="dropdown-item">Contact Us</a>
+                                    <a href="wishlist.html" class="dropdown-item">@lang('Loja')</a>
+                                    <a href="login.html" class="dropdown-item">@lang('Sistema')</a>
                                 </div>
                             </div>
                         </div>
                         <div class="navbar-nav ml-auto">
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">@lang('Usuário')</a>
                                 <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item">Login</a>
-                                    <a href="#" class="dropdown-item">Register</a>
+                                    <a href="#" class="dropdown-item">@lang('Entrar')</a>
+                                    <a href="#" class="dropdown-item">@lang('Registro')</a>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +98,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="search">
-                            <input type="text" placeholder="Search">
+                        <input type="text" placeholder="@lang('Pesquisar')">
                             <button><i class="fa fa-search"></i></button>
                         </div>
                     </div>
@@ -121,6 +119,20 @@
         </div>
         <!-- Bottom Bar End -->       
         
+        @if($menu!="Home")
+          <!-- Breadcrumb Start -->
+          <div class="breadcrumb-wrap">
+            <div class="container-fluid">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Products</a></li>
+                    <li class="breadcrumb-item active">Cart</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+        @endif
+
         <!-- Main Slider Start -->
         <div class="header">
             <div class="container-fluid">
@@ -132,25 +144,25 @@
                                     <a class="nav-link" href="#"><i class="fa fa-home"></i>Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-shopping-bag"></i>Best Selling</a>
+                                    <a class="nav-link" href="#"><i class="fa fa-shopping-bag"></i>@lang('Mais Vendido')</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-plus-square"></i>New Arrivals</a>
+                                    <a class="nav-link" href="#"><i class="fa fa-plus-square"></i>@lang('Novas chegadas')</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-female"></i>Fashion & Beauty</a>
+                                    <a class="nav-link" href="#"><i class="fa fa-female"></i>@lang('Moda e Beleza')</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-child"></i>Kids & Babies Clothes</a>
+                                    <a class="nav-link" href="#"><i class="fa fa-child"></i>@lang('Roupas para crianças e bebês')</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-tshirt"></i>Men & Women Clothes</a>
+                                    <a class="nav-link" href="#"><i class="fa fa-tshirt"></i>@lang('Roupas masculinas e femininas')</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-mobile-alt"></i>Gadgets & Accessories</a>
+                                    <a class="nav-link" href="#"><i class="fa fa-mobile-alt"></i>@lang('Gadgets e acessórios')</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-microchip"></i>Electronics & Accessories</a>
+                                    <a class="nav-link" href="#"><i class="fa fa-microchip"></i>@lang('Eletrônicos e acessórios')</a>
                                 </li>
                             </ul>
                         </nav>
@@ -223,7 +235,7 @@
                     <div class="col-lg-3 col-md-6 feature-col">
                         <div class="feature-content">
                             <i class="fab fa-cc-mastercard"></i>
-                            <h2>Secure Payment</h2>
+                            <h2>@lang('Pagamento seguro')</h2>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur elit
                             </p>
@@ -232,7 +244,7 @@
                     <div class="col-lg-3 col-md-6 feature-col">
                         <div class="feature-content">
                             <i class="fa fa-truck"></i>
-                            <h2>Worldwide Delivery</h2>
+                            <h2>@lang('Entrega em todo o país')</h2>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur elit
                             </p>
@@ -241,7 +253,7 @@
                     <div class="col-lg-3 col-md-6 feature-col">
                         <div class="feature-content">
                             <i class="fa fa-sync-alt"></i>
-                            <h2>90 Days Return</h2>
+                            <h2>@lang('Retorno de 90 dias')</h2>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur elit
                             </p>
@@ -250,7 +262,7 @@
                     <div class="col-lg-3 col-md-6 feature-col">
                         <div class="feature-content">
                             <i class="fa fa-comments"></i>
-                            <h2>24/7 Support</h2>
+                            <h2>@lang('Suporte 24/24')</h2>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur elit
                             </p>
@@ -319,10 +331,10 @@
             <div class="container-fluid">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h1>call us for any queries</h1>
+                        <h1>@lang('ligue-nos para qualquer dúvida')</h1>
                     </div>
                     <div class="col-md-6">
-                        <a href="tel:0123456789">+012-345-6789</a>
+                        <a href="tel:244946216795">+244 946 216 795</a>
                     </div>
                 </div>
             </div>
@@ -333,7 +345,7 @@
         <div class="featured-product product">
             <div class="container-fluid">
                 <div class="section-header">
-                    <h1>Featured Product</h1>
+                    <h1>@lang('Produto em destaque')</h1>
                 </div>
                 <div class="row align-items-center product-slider product-slider-4">
                     <div class="col-lg-3">
@@ -486,12 +498,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <h1>Subscribe Our Newsletter</h1>
+                        <h1>@lang('Assine nosso boletim informativo')</h1>
                     </div>
                     <div class="col-md-6">
                         <div class="form">
-                            <input type="email" value="Your email here">
-                            <button>Submit</button>
+                            <input type="email" placeholder="Seu email aqui">
+                            <button>Enviar</button>
                         </div>
                     </div>
                 </div>
@@ -503,7 +515,7 @@
         <div class="recent-product product">
             <div class="container-fluid">
                 <div class="section-header">
-                    <h1>Recent Product</h1>
+                    <h1>Produtos recentes</h1>
                 </div>
                 <div class="row align-items-center product-slider product-slider-4">
                     <div class="col-lg-3">
@@ -729,18 +741,18 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
-                            <h2>Get in Touch</h2>
+                            <h2>@lang('Entrar em contato')</h2>
                             <div class="contact-info">
-                                <p><i class="fa fa-map-marker"></i>123 E Store, Los Angeles, USA</p>
-                                <p><i class="fa fa-envelope"></i>email@example.com</p>
-                                <p><i class="fa fa-phone"></i>+123-456-7890</p>
+                                <p><i class="fa fa-map-marker"></i>LojaJBL, Lubango-Huíla, Angola</p>
+                                <p><i class="fa fa-envelope"></i>support@gmail.com</p>
+                                <p><i class="fa fa-phone"></i>+244-946-216-795</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
-                            <h2>Follow Us</h2>
+                            <h2>@lang('Siga-nos')</h2>
                             <div class="contact-info">
                                 <div class="social">
                                     <a href=""><i class="fab fa-twitter"></i></a>
@@ -755,22 +767,22 @@
 
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
-                            <h2>Company Info</h2>
+                            <h2>@lang('Companhia')</h2>
                             <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">@lang('Sobre Nós')</a></li>
+                                <li><a href="#">@lang('Política de Privacidade')</a></li>
+                                <li><a href="#">@lang('Termos e Condições')</a></li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
-                            <h2>Purchase Info</h2>
+                            <h2>@lang('Compra')</h2>
                             <ul>
-                                <li><a href="#">Pyament Policy</a></li>
-                                <li><a href="#">Shipping Policy</a></li>
-                                <li><a href="#">Return Policy</a></li>
+                                <li><a href="#">@lang('Política de pagamento')</a></li>
+                                <li><a href="#">@lang('Política de Envio')</a></li>
+                                <li><a href="#">@lang('Política de devolução')</a></li>
                             </ul>
                         </div>
                     </div>
@@ -779,13 +791,13 @@
                 <div class="row payment align-items-center">
                     <div class="col-md-6">
                         <div class="payment-method">
-                            <h2>We Accept:</h2>
+                            <h2>@lang('Nós aceitamos'):</h2>
                             <img src="{{asset('assets/client/img/payment-method.png')}}" alt="Payment Method" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="payment-security">
-                            <h2>Secured By:</h2>
+                            <h2>@lang('Assegurado por'):</h2>
                             <img src="{{asset('assets/client/img/godaddy.svg')}}" alt="Payment Security" />
                             <img src="{{asset('assets/client/img/norton.svg')}}" alt="Payment Security" />
                             <img src="{{asset('assets/client/img/ssl.svg')}}" alt="Payment Security" />
@@ -801,7 +813,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 copyright">
-                        <p>Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>. All Rights Reserved</p>
+                    <p>@lang('Copyright') &copy; <a href="{{route('home', app()->getLocale())}}">lojaJBL</a>. @lang('Todos os direitos reservados')</p>
                     </div>
 
                     <div class="col-md-6 template-by">
